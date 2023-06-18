@@ -155,27 +155,6 @@ scripts/config -d LATENCYTOP
 scripts/config -d DEBUG_PREEMPT
 %endif
 
-# Change tick rate to 1000.
-# %if 1
-# scripts/config -d HZ_500
-# scripts/config -e HZ_1000
-# scripts/config --set-val HZ 1000
-# %endif
-
-# Enable full tickless mode.
-# https://docs.kernel.org/timers/no_hz.html
-%if 1
-scripts/config -d HZ_PERIODIC
-scripts/config -d NO_HZ_IDLE
-scripts/config -d CONTEXT_TRACKING_FORCE
-scripts/config -d CONTEXT_TRACKING_USER_FORCE
-scripts/config -e NO_HZ_FULL_NODEF
-scripts/config -e NO_HZ_FULL
-scripts/config -e NO_HZ
-scripts/config -e NO_HZ_COMMON
-scripts/config -e CONTEXT_TRACKING
-%endif
-
 # Set RCU options.
 # https://www.kernel.org/doc/Documentation/RCU/Design/Data-Structures/Data-Structures.html
 # https://raw.githubusercontent.com/CachyOS/linux-cachyos/master/linux-bore/config
